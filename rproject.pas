@@ -8,7 +8,6 @@ uses
   Classes, SysUtils, DOM, XMLWrite;
 
 type
-  // TRProject is a simple project container with a list of file names.
   TRProject = class
   private
     FOpenedFiles: TStringList;
@@ -16,9 +15,9 @@ type
     constructor Create;
     destructor Destroy; override;
     procedure AddFile(const AFileName: string);
-    // Instead of receiving a file name, SaveToFile now automatically uses
-    // ~/Documents/MyProj/MyProject.rproj. Adjust as you see fit.
     procedure SaveToFile;
+    procedure SaveAsLPR;
+    procedure SaveAsXcodeProj;
     property OpenedFiles: TStringList read FOpenedFiles;
   end;
 
@@ -52,26 +51,20 @@ var
   XMLStream: TFileStream;
   ProjectPath, FullFileName: string;
 begin
-  // Create ~/Documents/MyProj if it doesn't exist
   ProjectPath := GetUserDir + 'Documents' + DirectorySeparator + 'MyProj';
   if not DirectoryExists(ProjectPath) then
     ForceDirectories(ProjectPath);
 
-  // Full path to the .rproj file
   FullFileName := ProjectPath + DirectorySeparator + 'MyProject.rproj';
 
-  // Create an XML document and build a simple structure
   Doc := TXMLDocument.Create;
   try
-    // Root element
     RootNode := Doc.CreateElement('Project');
     Doc.Appendchild(RootNode);
 
-    // Files element
     FilesNode := Doc.CreateElement('OpenedFiles');
     RootNode.Appendchild(FilesNode);
 
-    // Add each opened file as an XML element
     for i := 0 to FOpenedFiles.Count - 1 do
     begin
       FileNode := Doc.CreateElement('File');
@@ -79,7 +72,6 @@ begin
       FilesNode.AppendChild(FileNode);
     end;
 
-    // Save XML to file
     XMLStream := TFileStream.Create(FullFileName, fmCreate);
     try
       WriteXMLFile(Doc, XMLStream);
@@ -88,6 +80,64 @@ begin
     end;
   finally
     Doc.Free;
+  end;
+end;
+
+procedure TRProject.SaveAsLPR;
+var
+  ProjectPath, LPRFile: string;
+  i: Integer;
+  LPR: TStringList;
+begin
+  ProjectPath := GetUserDir + 'Documents' + DirectorySeparator + 'MyProj';
+  if not DirectoryExists(ProjectPath) then
+    ForceDirectories(ProjectPath);
+
+  LPRFile := ProjectPath + DirectorySeparator + 'MyProject.lpr';
+  LPR := TStringList.Create;
+  try
+    LPR.Add('program MyProject;');
+    LPR.Add('');
+    LPR.Add('uses');
+    for i := 0 to FOpenedFiles.Count - 1 do
+    begin
+      LPR.Add('  ' + ChangeFileExt(ExtractFileName(FOpenedFiles[i]), '') + ',');
+    end;
+    LPR[LPR.Count - 1] := TrimRight(LPR[LPR.Count - 1]); // remove comma
+    LPR.Add('');
+    LPR.Add('begin');
+    LPR.Add('  // TODO: your app starts here');
+    LPR.Add('end.');
+
+    LPR.SaveToFile(LPRFile);
+  finally
+    LPR.Free;
+  end;
+end;
+
+procedure TRProject.SaveAsXcodeProj;
+var
+  ProjectPath, PBXFile: string;
+  PBX: TStringList;
+begin
+  ProjectPath := GetUserDir + 'Documents' + DirectorySeparator + 'MyProj';
+  if not DirectoryExists(ProjectPath) then
+    ForceDirectories(ProjectPath);
+
+  PBXFile := ProjectPath + DirectorySeparator + 'MyProject.xcodeproj.pbxproj';
+  PBX := TStringList.Create;
+  try
+    PBX.Add('// !Placeholder Xcode project structure');
+    PBX.Add('// Real generation requires UUIDs, targets, and schemes');
+    PBX.Add('// For now, this serves as a stub');
+
+    PBX.SaveToFile(PBXFile);
+
+    // Optionally create folder structure:
+    CreateDir(ProjectPath + DirectorySeparator + 'MyProject.xcodeproj');
+    RenameFile(PBXFile, ProjectPath + DirectorySeparator + 'MyProject.xcodeproj' + DirectorySeparator + 'project.pbxproj');
+  finally
+    PBX.Free;
   end;
 end;
 

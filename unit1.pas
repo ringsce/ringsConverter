@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, Menus, StdCtrls,
-  CppToPas, ObjCToPas,Ctopas, ConvertCmakeToPas, RProject;  // <-- Added RProject unit
+  CppToPas, ObjCToPas,Ctopas, ConvertCmakeToPas, RProject, pastoswift;  // <-- Added RProject unit
 
 type
 
@@ -16,6 +16,7 @@ type
     Button1: TButton;
     ButtonSaveProject: TButton; // Add a button to save the Edit
     MainMenu1: TMainMenu;
+    MemoSwift: TMemo;
     MemoC: TMemo;
     MemoPas: TMemo;
     MemoCmake: TMemo;
@@ -23,15 +24,24 @@ type
     Convert: TMenuItem;
     CtoPascal: TMenuItem;
     CMake: TMenuItem;
+    Edit: TMenuItem;
+    Redo: TMenuItem;
+    Undo: TMenuItem;
+    Tools: TMenuItem;
+    Swift: TMenuItem;
     Save: TMenuItem;
     Objc: TMenuItem;
     MenuItemConvert: TMenuItem;
     procedure Button1Click(Sender: TObject);
     procedure ConvertClick(Sender: TObject);
+    procedure MemoSwiftChange(Sender: TObject);
     procedure MemoCChange(Sender: TObject);
     procedure EditClick(Sender: TObject);
     procedure CtoPascalClick(Sender: TObject);
     procedure CMakeClick(Sender: TObject);
+    procedure UndoClick(Sender: TObject);
+    procedure ToolsClick(Sender: TObject);
+    procedure SwiftClick(Sender: TObject);
     procedure ObjcClick(Sender: TObject);
     procedure SaveClick(Sender: TObject);
   private
@@ -61,6 +71,11 @@ end;
 procedure TForm1.ConvertClick(Sender: TObject);
 begin
   MemoPas.Text := ConvertCToPascal(MemoC.Text);
+end;
+
+procedure TForm1.MemoSwiftChange(Sender: TObject);
+begin
+     MemoSwift.Text := ConvertPascalToSwift(MemoSwift.Text);
 end;
 
 procedure TForm1.MemoCChange(Sender: TObject);
@@ -96,6 +111,22 @@ end;
 procedure TForm1.CMakeClick(Sender: TObject);
 begin
      MemoPas.Text := ConvertObjCToPascal(MemoC.Text);
+end;
+
+procedure TForm1.UndoClick(Sender: TObject);
+begin
+
+end;
+
+procedure TForm1.ToolsClick(Sender: TObject);
+begin
+
+end;
+
+procedure TForm1.SwiftClick(Sender: TObject);
+begin
+     MemoSwift.Text := ConvertPascalToSwift(MemoSwift.Text);
+
 end;
 
 procedure TForm1.ObjcClick(Sender: TObject);

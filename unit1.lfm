@@ -1,12 +1,13 @@
 object Form1: TForm1
-  Left = 299
+  Left = 271
   Height = 483
-  Top = 39
+  Top = 294
   Width = 1065
   Caption = 'Form1'
   ClientHeight = 483
   ClientWidth = 1065
   Menu = MainMenu1
+  LCLVersion = '4.99.0.0'
   object MemoC: TMemo
     AnchorSideTop.Control = Owner
     AnchorSideBottom.Control = Owner
@@ -26,7 +27,7 @@ object Form1: TForm1
     AnchorSideTop.Control = Owner
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 740
+    Left = 760
     Height = 483
     Top = 0
     Width = 150
@@ -48,13 +49,24 @@ object Form1: TForm1
   end
   object MemoCmake: TMemo
     Left = 144
-    Height = 472
+    Height = 483
     Top = 0
-    Width = 600
+    Width = 96
     Lines.Strings = (
       'MemoCmake'
     )
     TabOrder = 3
+  end
+  object MemoSwift: TMemo
+    Left = 240
+    Height = 482
+    Top = 0
+    Width = 520
+    Lines.Strings = (
+      'MemoSwift'
+    )
+    TabOrder = 4
+    OnChange = MemoSwiftChange
   end
   object MainMenu1: TMainMenu
     Left = 41
@@ -80,6 +92,24 @@ object Form1: TForm1
       object CMake: TMenuItem
         Caption = 'CMake'
         OnClick = CMakeClick
+      end
+      object Swift: TMenuItem
+        Caption = 'Swift'
+        OnClick = SwiftClick
+      end
+    end
+    object Tools: TMenuItem
+      Caption = 'Tools'
+      OnClick = ToolsClick
+      object Undo: TMenuItem
+        Caption = 'Undo'
+        OnClick = UndoClick
+      end
+      object Redo: TMenuItem
+        Caption = 'Redo'
+      end
+      object Edit: TMenuItem
+        Caption = 'Edit'
       end
     end
   end
