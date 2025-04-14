@@ -1,8 +1,7 @@
----
-
 # 🔄 Rings Converter
 
-**Rings Converter** is a cross-platform project converter built with [Free Pascal](https://www.freepascal.org/) and [Lazarus](https://www.lazarus-ide.org/).  
+**Rings Converter** is a cross-platform project converter built with 
+[Free Pascal](https://www.freepascal.org/) and [Lazarus](https://www.lazarus-ide.org/).  
 It aims to simplify the process of converting Pascal projects into modern formats, including `.lpr`, `.rproj`, and `.xcodeproj`.
 
 
