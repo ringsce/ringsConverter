@@ -66,7 +66,7 @@ This project is part of the **TildeDesktop** toolset.
 
 ## 📄 License
 
-This project is licensed under the **MIT License**.  
+This project is licensed under the **GPL v3**.  
 See [LICENSE](LICENSE) for details.
 
 ---
