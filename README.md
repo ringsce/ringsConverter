@@ -1,12 +1,10 @@
 ---
 
-```markdown
 # 🔄 Rings Converter
 
 **Rings Converter** is a cross-platform project converter built with [Free Pascal](https://www.freepascal.org/) and [Lazarus](https://www.lazarus-ide.org/).  
 It aims to simplify the process of converting Pascal projects into modern formats, including `.lpr`, `.rproj`, and `.xcodeproj`.
 
-![Rings Converter Screenshot](docs/screenshot.png)
 
 ---
 
@@ -45,7 +43,7 @@ It aims to simplify the process of converting Pascal projects into modern format
 
 ## 🧩 Project Structure
 
-```text
+```
 /units/
   RProject.pas       // Project save/load system (.rproj, .lpr, .xcodeproj)
   PastoSwift.pas     // Experimental Pascal-to-Swift 6.1 converter
@@ -78,8 +76,6 @@ See [LICENSE](LICENSE) for details.
 
 - 🛠 GitHub: [github.com/ringsce/ringsConverter](https://github.com/ringsce/ringsConverter)
 - 🧠 Website: [ringscejs.gleentech.com](https://ringscejs.gleentech.com)
-
-```
 
 ---
 
