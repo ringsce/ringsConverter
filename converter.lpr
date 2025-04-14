@@ -10,8 +10,16 @@ uses
   athreads,
   {$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, Unit1, CppToPas, ObjCToPas, RProject, CTopas, ConvertCMakeToPas,
-  pastoswift, Startup, AboutForm
+  Forms,
+  Unit1,
+  CppToPas in '../units/CppToPas.pas',
+  ObjCToPas in '../units/ObjCToPas.pas',
+  RProject in '../units/RProject.pas',
+  CTopas in '../units/CtoPas.pas',
+  ConvertCMakeToPas in '../units/CovertCMaketoPas.pas',
+  pastoswift in '../units/pastoswift.pas',
+  Startup in '../units/Startup.pas',
+  AboutForm in '../units/AboutForm.pas'
   { you can add units after this };
 
 {$R *.res}
