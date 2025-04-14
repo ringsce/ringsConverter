@@ -1,8 +1,0 @@
-object Form3: TForm3
-  Left = 299
-  Height = 240
-  Top = 39
-  Width = 320
-  Caption = 'TAboutForm'
-  LCLVersion = '4.99.0.0'
-end
