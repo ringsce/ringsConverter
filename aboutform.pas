@@ -17,6 +17,8 @@ type
     btnClose: TButton;
     procedure btnCloseClick(Sender: TObject);
     procedure Label3Click(Sender: TObject);
+    procedure lblTitleOnClick(Sender: TObject);
+
   end;
 
 implementation
@@ -34,6 +36,11 @@ end;
 procedure TAboutForm.Label3Click(Sender: TObject);
 begin
   OpenURL(Label3.Caption);
+end;
+
+procedure TAboutForm.lblTitleOnClick(Sender: TObject);
+begin
+  lblTitle.Caption := 'Rings Converter';
 end;
 
 end.

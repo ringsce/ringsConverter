@@ -98,14 +98,14 @@
         <UnitName Value="AboutForm"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="7"/>
-        <CursorPos Y="38"/>
-        <UsageCount Value="105"/>
+        <TopLine Value="13"/>
+        <CursorPos X="25" Y="20"/>
+        <UsageCount Value="107"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="14">
+    <JumpHistory HistoryIndex="16">
       <Position>
         <Filename Value="converter.lpr"/>
         <Caret Line="21" Column="3"/>
@@ -164,7 +164,15 @@
       </Position>
       <Position>
         <Filename Value="aboutform.pas"/>
-        <Caret Line="38" Column="5" TopLine="7"/>
+        <Caret Line="38" TopLine="7"/>
+      </Position>
+      <Position>
+        <Filename Value="aboutform.pas"/>
+        <Caret Line="34" Column="33" TopLine="7"/>
+      </Position>
+      <Position>
+        <Filename Value="aboutform.pas"/>
+        <Caret Line="41" Column="40" TopLine="10"/>
       </Position>
     </JumpHistory>
     <RunParams>
