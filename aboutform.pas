@@ -9,14 +9,14 @@ uses
 
 type
   TAboutForm = class(TForm)
-    imgLogo: TImage;
+    Image1: TImage;
     lblTitle: TLabel;
-    lblVersion: TLabel;
-    memoDesc: TMemo;
-    lblLink: TLabel;
+    label2: TLabel;
+    Memo1: TMemo;
+    Label3: TLabel;
     btnClose: TButton;
     procedure btnCloseClick(Sender: TObject);
-    procedure lblLinkClick(Sender: TObject);
+    procedure Label3Click(Sender: TObject);
   end;
 
 implementation
@@ -31,9 +31,9 @@ begin
   Close;
 end;
 
-procedure TAboutForm.lblLinkClick(Sender: TObject);
+procedure TAboutForm.Label3Click(Sender: TObject);
 begin
-  OpenURL(lblLink.Caption);
+  OpenURL(Label3.Caption);
 end;
 
 end.

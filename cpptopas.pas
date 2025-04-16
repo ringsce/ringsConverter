@@ -30,16 +30,13 @@ begin
 
   // Optionally, convert C/C++ line comments starting with // to Pascal style comments
   // If you want to change them to Pascal-style "(* ... *)" comments, uncomment the block below.
-  {
   Regex := TRegExpr.Create;
   try
     Regex.Expression := '//(.*)';
     ConvertedCode := Regex.Replace(ConvertedCode, '(*\1*)', True);
   finally
     Regex.Free;
-  end;
-  }
-  // Otherwise, leave // comments unchanged.
+  end; // Otherwise, leave // comments unchanged.
 
   // Convert #include <filename> to Pascal comments
   Regex := TRegExpr.Create;
